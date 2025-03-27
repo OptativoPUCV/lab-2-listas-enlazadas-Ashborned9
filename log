@@ -99,3 +99,85 @@ list.c:71:1: error: control reaches end of non-void function [-Werror=return-typ
 cc1: all warnings being treated as errors
 Compilation failed
 76c6ba6
+Thu 27 Mar 2025 07:03:05 PM UTC: 
+ list.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+In file included from test.c:5:
+list.c: In function ‘prevList’:
+list.c:70:29: error: expected declaration specifiers before ‘}’ token
+   70 | void * prevList(List *list) }
+      |                             ^
+list.c:72:40: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   72 | void pushFront(List *list, void *data) {}
+      |                                        ^
+list.c:74:39: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   74 | void pushBack(List *list, void *data) {
+      |                                       ^
+list.c:79:42: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   79 | void pushCurrent(List *list, void *data) {}
+      |                                          ^
+list.c:81:28: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   81 | void *popFront(List *list) {
+      |                            ^
+list.c:86:27: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   86 | void *popBack(List *list) {
+      |                           ^
+list.c:91:30: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   91 | void *popCurrent(List *list) { return NULL; }
+      |                              ^
+list.c:93:28: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   93 | void cleanList(List *list) {
+      |                            ^
+test.c:9:1: error: parameter ‘test_id’ is initialized
+    9 | int test_id = -1;
+      | ^~~
+test.c:12:14: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   12 | int success(){
+      |              ^
+test.c:17:24: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   17 | void err_msg(char* msg){
+      |                        ^
+test.c:24:23: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   24 | void ok_msg(char* msg){
+      |                       ^
+test.c:30:25: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   30 | void info_msg(char* msg){
+      |                         ^
+test.c:35:75: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   35 | int test_suite(int(*test)(), char* msg, int max_score, int id, int req_id){
+      |                                                                           ^
+test.c:51:26: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   51 | List* initialize_exList(){
+      |                          ^
+test.c:73:29: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   73 | List* initialize_emptyList(){
+      |                             ^
+test.c:83:18: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   83 | int test_create(){
+      |                  ^
+test.c:98:22: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   98 | int test_first_next(){
+      |                      ^
+test.c:171:21: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  171 | int test_last_prev(){
+      |                     ^
+test.c:233:21: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  233 | int test_pushfront(){
+      |                     ^
+test.c:298:23: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  298 | int test_pushcurrent(){
+      |                       ^
+test.c:357:22: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  357 | int test_popcurrent(){
+      |                      ^
+test.c:448:36: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+  448 | int main( int argc, char *argv[] ) {
+      |                                    ^
+list.c:70:8: error: old-style parameter declarations in prototyped function definition
+   70 | void * prevList(List *list) }
+      |        ^~~~~~~~
+test.c:469: error: expected ‘{’ at end of input
+test.c:469: error: control reaches end of non-void function [-Werror=return-type]
+cc1: all warnings being treated as errors
+Compilation failed
+54f8c4f
