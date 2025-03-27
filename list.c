@@ -148,6 +148,7 @@ void *popCurrent(List *list) {
   list->current = aux->next;
   free(aux);
   return datoCur;
+}
   
 
 void cleanList(List *list) {
