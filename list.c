@@ -67,10 +67,11 @@ void *lastList(List *list) {
   return list->current->data;
 }
 
-void *prevList(List *list) {
-    if(list == NULL ||list->head == NULL ||list->current == NULL) return NULL;
+void * prevList(List *list) {
+    if (list == NULL ||list->head == NULL ||list->current == NULL) return NULL;
     Node *aux = list->head;
-    while (aux->next != list->current) {
+    while (aux->next != list->current) 
+    {
       aux = aux->next;
     }
     list->current = aux;
