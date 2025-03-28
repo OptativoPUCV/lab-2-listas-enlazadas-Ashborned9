@@ -79,14 +79,17 @@ void *prevList(List *list) {
   return list->current->data;
 }
 
-void pushFront(List *list, void *data) {
+void pushFront(List *list, void *data) 
+{
   Node *NodoNuevo = createNode(data);
   NodoNuevo->prev = NULL;
   NodoNuevo->next = list->head;
-  if (list->head != NULL) {
+  if (list->head != NULL) 
+  {
     list->head->prev = NodoNuevo;
   }
-  else{
+  else
+  {
     list->tail = NodoNuevo;
   }
   list->head = NodoNuevo;
@@ -97,8 +100,10 @@ void pushBack(List *list, void *data) {
   pushCurrent(list, data);
 }
 
-void pushCurrent(List *list, void *data) {
-  if (list == NULL || list->current == NULL) {
+void pushCurrent(List *list, void *data) 
+{
+  if (list == NULL || list->current == NULL) 
+  {
     return;
   }
   Node *NodoNuevo = createNode(data);
@@ -106,16 +111,19 @@ void pushCurrent(List *list, void *data) {
   NodoNuevo->prev = list->current;
   NodoNuevo->next = Siguiente;
   list->current->next = NodoNuevo;
-  if (Siguiente != NULL){
+  if (Siguiente != NULL)
+  {
     Siguiente->prev = NodoNuevo;
   }
-  else{
+  else
+  {
     list->tail = NodoNuevo;
   }
   
 }
 
-void *popFront(List *list) {
+void *popFront(List *list) 
+{
   list->current = list->head;
   return popCurrent(list);
 }
@@ -144,7 +152,8 @@ void *popCurrent(List *list) {
     {
       aux->next->prev = aux->prev;
     }
-    else{
+    else
+    {
       list->tail = aux->prev;
     }
   list->current = aux->next;
