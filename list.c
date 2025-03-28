@@ -68,28 +68,24 @@ void *lastList(List *list) {
 }
 
 void *prevList(List *list) {
-  if (list ==NULL || list->current ==NULL || list->current->prev == NULL){
+  if (list == NULL || list->current == NULL || list->current->prev == NULL) {
     return NULL;
   }
   Node *aux = list->head;
-  while(aux->next != list->current){
+  while (aux->next != list->current) {
     aux = aux->next;
   }
   list->current = aux;
   return list->current->data;
 }
 
-void pushFront(List *list, void *data) 
-{
+void pushFront(List *list, void *data) {
   Node *NodoNuevo = createNode(data);
   NodoNuevo->prev = NULL;
   NodoNuevo->next = list->head;
-  if (list->head != NULL) 
-  {
+  if (list->head != NULL) {
     list->head->prev = NodoNuevo;
-  }
-  else
-  {
+  } else {
     list->tail = NodoNuevo;
   }
   list->head = NodoNuevo;
@@ -100,10 +96,8 @@ void pushBack(List *list, void *data) {
   pushCurrent(list, data);
 }
 
-void pushCurrent(List *list, void *data) 
-{
-  if (list == NULL || list->current == NULL) 
-  {
+void pushCurrent(List *list, void *data) {
+  if (list == NULL || list->current == NULL) {
     return;
   }
   Node *NodoNuevo = createNode(data);
@@ -111,19 +105,14 @@ void pushCurrent(List *list, void *data)
   NodoNuevo->prev = list->current;
   NodoNuevo->next = Siguiente;
   list->current->next = NodoNuevo;
-  if (Siguiente != NULL)
-  {
+  if (Siguiente != NULL) {
     Siguiente->prev = NodoNuevo;
-  }
-  else
-  {
+  } else {
     list->tail = NodoNuevo;
   }
-  
 }
 
-void *popFront(List *list) 
-{
+void *popFront(List *list) {
   list->current = list->head;
   return popCurrent(list);
 }
@@ -134,33 +123,25 @@ void *popBack(List *list) {
 }
 
 void *popCurrent(List *list) {
-  if (list == NULL || list->current == NULL) 
-  {
+  if (list == NULL || list->current == NULL) {
     return NULL;
   }
   Node *aux = list->current;
   void *datoCur = aux->data;
-  if (aux->prev != NULL)
-  {
+  if (aux->prev != NULL) {
     aux->prev->next = aux->next;
-  }
-  else
-  {
+  } else {
     list->head = aux->next;
   }
-  if (aux->next != NULL)
-    {
-      aux->next->prev = aux->prev;
-    }
-    else
-    {
-      list->tail = aux->prev;
-    }
+  if (aux->next != NULL) {
+    aux->next->prev = aux->prev;
+  } else {
+    list->tail = aux->prev;
+  }
   list->current = aux->next;
   free(aux);
   return datoCur;
 }
-  
 
 void cleanList(List *list) {
   while (list->head != NULL) {
